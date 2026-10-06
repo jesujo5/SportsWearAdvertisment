@@ -1,0 +1,92 @@
+:root{
+  --cream : #f0e1c7;
+  --paper: #f6f1e8;
+  --black: #090909;
+  --lime: #ccf04d;
+  --orange: #ea5b2e;
+  --lightorange: #d98a45;
+  --grey: #6b665e;
+  --word: 1312px;
+  --fonts: "Archivo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+*{
+     box-sizing: border-box;
+     margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+   font-family: var(--fonts);
+   background: var(--cream);
+   color: var(--black);
+   line-height: 1.55;
+   -webkit-font-smoothing: antialiased;
+}
+.navbar{
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.main{
+  position: sticky; /* Control element layout or stacking. */
+  top: 0; /* Control element layout or stacking. */
+  z-index: 80; /* Control element layout or stacking. */
+  background: var(--cream);
+  border-bottom: 1px solid rgba(24,23,22,.14) 
+}
+.navbar{
+  display: flex; /* Control element layout or stacking. */
+  align-items: center;
+  justify-content: space-between; /* Arrange content within the layout. */
+  height: 64px 
+}
+.logo {
+  font-weight: 900;
+  font-size: 1.65rem;
+  letter-spacing: .06em;
+  font-stretch: 110%;
+}
+.links {
+  display: flex;
+  gap: 34px;
+  font-size: .95rem;
+  font-weight: 500;
+}
+.links a {
+  position: relative;
+  padding: 4px 0;
+}
+.links a::after {
+  content: ""; /* Set supporting visual or interaction behavior. */
+  position: absolute; /* Control element layout or stacking. */
+  left: 0; /* Control element layout or stacking. */
+  right: 100%; /* Control element layout or stacking. */
+  bottom: 0; /* Control element layout or stacking. */
+  height: 3px; /* Set the element dimensions. */
+  background: var(--lime);
+  transition: right .25s /* Control the element motion or animation. */
+}
+.links a:hover::after,.navlinks a.on::after {
+  right: 0 /* Control element layout or stacking. */
+}
+
+.links a.on {
+  font-weight: 800 /* Style the text and its typography. */
+}
+
+.icons{
+  display: flex;
+  gap: 20px; /* Set spacing around or between content. */
+  align-items: center
+}
+.icons button{
+  background: none;
+  border: 0; /* Define the element edge or emphasis. */
+  cursor: pointer;
+  color: inherit;
+  position: relative;
+  display: grid; /* Control element layout or stacking. */
+  place-items: center /* Arrange content within the layout. */
+}
