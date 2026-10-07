@@ -1,63 +1,127 @@
-const storyCounters = document.querySelectorAll(".story-section .stats b[data-n]");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const findElement = (selector, scope = document) => scope.querySelector(selector);
+const findElements = (selector, scope = document) =>
+  Array.from(scope.querySelectorAll(selector));
 
-function showCounterFinalValue(counter) {
-  const target = Number(counter.dataset.n);
-  const suffix = counter.dataset.s || "";
-  counter.textContent = `${target}${suffix}`;
-}
+const userPrefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+const observedElements = findElements("[data-n], .story-timeline li");
 
-function animateCounter(counter) {
-  const target = Number(counter.dataset.n);
-  const suffix = counter.dataset.s || "";
+function animateNumber(element) {
+  const target = Number(element.dataset.n);
+  const suffix = element.dataset.s || "";
 
   if (!Number.isFinite(target) || target < 0) {
-    throw new Error(`Invalid story counter target: ${counter.dataset.n}`);
+    throw new Error(`Invalid statistic target: ${element.dataset.n}`);
   }
 
-  if (prefersReducedMotion.matches) {
-    showCounterFinalValue(counter);
-    return;
-  }
-
-  const duration = 1400;
-  const startTime = performance.now();
-
-  function updateCounter(currentTime) {
-    const progress = Math.min((currentTime - startTime) / duration, 1);
+  const startedAt = performance.now();
+  const animateFrame = (now) => {
+    const progress = userPrefersReducedMotion
+      ? 1
+      : Math.min(1, (now - startedAt) / 1400);
     const easedProgress = 1 - (1 - progress) ** 3;
-    const currentValue = Math.floor(easedProgress * target);
-
-    counter.textContent = `${progress === 1 ? target : currentValue}${suffix}`;
+    element.textContent = `${Math.round(target * easedProgress)}${suffix}`;
 
     if (progress < 1) {
-      requestAnimationFrame(updateCounter);
+      requestAnimationFrame(animateFrame);
     }
-  }
+  };
 
-  requestAnimationFrame(updateCounter);
+  requestAnimationFrame(animateFrame);
 }
 
 if ("IntersectionObserver" in window) {
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        currentObserver.unobserve(entry.target);
+
+        if (entry.target.dataset.n !== undefined) {
+          animateNumber(entry.target);
+        } else {
+          entry.target.classList.add("on");
         }
       });
     },
     { threshold: 0.5 },
   );
 
-  storyCounters.forEach((counter) => counterObserver.observe(counter));
+  observedElements.forEach((element) => observer.observe(element));
 } else {
-  storyCounters.forEach(animateCounter);
+  observedElements.forEach((element) => {
+    if (element.dataset.n !== undefined) {
+      animateNumber(element);
+    } else {
+      element.classList.add("on");
+    }
+  });
 }
 
-const arrivalFilters = document.querySelectorAll(".arrival-filter[data-filter]");
-const arrivalCards = document.querySelectorAll(".product-card[data-categories]");
+findElements(".story-timeline li").forEach((item, index) => {
+  const year = findElement("b", item);
+  if (year) {
+    year.style.transitionDelay = `${index * 0.2 + 0.3}s`;
+  }
+});
+
+const storyImagePanel = findElement("#story-image");
+const storyImage = storyImagePanel && findElement("img", storyImagePanel);
+
+if (storyImagePanel && storyImage && !userPrefersReducedMotion) {
+  const moveStoryImage = () => {
+    const bounds = storyImagePanel.getBoundingClientRect();
+    const progress = Math.min(
+      1,
+      Math.max(
+        0,
+        1 - (bounds.top + bounds.height) / (window.innerHeight + bounds.height),
+      ),
+    );
+
+    storyImage.style.transform = `translateX(${(progress - 0.5) * -9}%)`;
+  };
+
+  window.addEventListener("scroll", moveStoryImage, { passive: true });
+  moveStoryImage();
+}
+
+const menuButton = findElement("#burger");
+const navigationLinks = findElement("#links");
+
+if (menuButton && navigationLinks) {
+  const closeMenu = () => {
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open menu");
+    navigationLinks.classList.remove("open");
+  };
+
+  menuButton.addEventListener("click", () => {
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!isExpanded));
+    menuButton.setAttribute("aria-label", isExpanded ? "Open menu" : "Close menu");
+    navigationLinks.classList.toggle("open", !isExpanded);
+  });
+
+  navigationLinks.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLAnchorElement) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+}
+
+const arrivalFilters = findElements(".arrival-filter[data-filter]");
+const arrivalCards = findElements(".product-card[data-categories]");
 
 function filterArrivalCards(selectedCategory) {
   let visibleCardIndex = 0;
@@ -84,7 +148,9 @@ arrivalFilters.forEach((filterButton) => {
   });
 });
 
-const initiallySelectedFilter = document.querySelector(".arrival-filter[aria-pressed=\"true\"]");
+const initiallySelectedFilter = findElement(
+  '.arrival-filter[aria-pressed="true"]',
+);
 if (initiallySelectedFilter) {
   filterArrivalCards(initiallySelectedFilter.dataset.filter);
 }

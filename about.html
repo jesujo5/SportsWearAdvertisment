@@ -9,32 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="about-page">
     <header id = "hdr">
     <nav class="main">
      <div class="navbar">
       <a href="about.html" class="logo">PACELINE</a>
       <div class="links" id="links">
-          <a href="#">Men</a>
-          <a href="#">Women</a>
-          <a href="#">Footwear</a>
-          <a href="#">Apparel</a>
-          <a href="#">Brands</a>
-          <a href="#">Sale</a>
+          <a href="index.html#mens-running">Men</a>
+          <a href="index.html#womens-running">Women</a>
+          <a href="index.html#arrivals">Footwear</a>
+          <a href="index.html#apparel">Apparel</a>
+          <a href="about.html#story">Brands</a>
+          <a href="index.html#arrivals">Sale</a>
         </div>
+        <button type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links">MENU</button>
         <div class="icon">
           <button type="button">🔎︎</button>
           <button type="button">👤</button>
-          <button type="button" id="cart-button" aria-label="Open cart">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 4h2l2.5 11h10L20 7H6.5M9 20h.01M17 20h.01" /></svg><span id="cart-count">0</span>
-          </button>        
         </div>
      </div>
     </nav>
    </header>
    <main>
-    <div class="about-intro">
+    <div class="about-intro" id="story">
         <p class="breadcrumb">
           <a href="index.html">HOME</a> &nbsp;/&nbsp; ABOUT
         </p>
@@ -52,6 +49,234 @@
             alt="A pack of runners' legs mid-stride in a city race"/>
         </div>
       </div>
+      <section class="mission-section">
+        <div class="mission-layout">
+          <div>
+            <p class="label">Why we exist</p>
+            <h2>We're all about the run.</h2>
+          </div>
+          <div>
+            <p>
+              If your aim is 5K or 26.2 miles, on road or trail, we're here to
+              prepare, empower and equip you — from your first training run
+              through to race-day. Our tried-and-tested range covers road,
+              trail, track and field, apparel and accessories, with zero
+              compromise on performance or style.
+            </p>
+            <p>
+              Paceline is small and independent, but the community around it is
+              anything but. We run our own weekly club, host free gait analysis,
+              and partner with local charities so 20% of profits from kids' kits
+              go to Girls Run Glasgow.
+            </p>
+            <p>
+              Whatever mile you're on, we want to be your shop. Come say hello.
+            </p>
+            <p class="sig">— Rae &amp; Jamie, Founders</p>
+          </div>
+        </div>
+      </section>
+      <section class="values-section">
+        <div class="values-content">
+          <p class="label">What we stand for</p>
+          <h2>Three things we won't compromise on.</h2>
+          <div class="value-cards">
+            <div>
+              <b>01</b>
+              <h3>Curated, not sold to us.</h3>
+              <p>
+                Every brand we carry has been tested, worn and vouched for by
+                our team. If it doesn't perform on a Glasgow winter long run, it
+                doesn't hit our wall.
+              </p>
+            </div>
+            <div>
+              <b>02</b>
+              <h3>Community over transaction.</h3>
+              <p>
+                Free gait analysis, weekly run clubs, and race-day support. Come
+                in for shoes, stay for the miles. Ask for Rae — she'll get you
+                laced up right.
+              </p>
+            </div>
+            <div>
+              <b>03</b>
+              <h3>Craft in every detail.</h3>
+              <p>
+                From how we lay out the store to how we pack an order — the
+                small stuff matters. We've spent a decade sweating the details
+                so your run is smoother.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="timeline-section">
+        <div class="timeline-content">
+          <p class="label">Ten seasons in</p>
+          <h2>How we got here.</h2>
+          <ol class="story-timeline">
+            <li>
+              <b>2015</b>
+              <h3>Doors open.</h3>
+              <p>
+                Rae opens a 40-sqm shop on Great Western Road with 3 shoe brands
+                and a lot of hope.
+              </p>
+            </li>
+            <li>
+              <b>2018</b>
+              <h3>The clinic launches.</h3>
+              <p>
+                Free gait analysis and injury consults every Saturday — booked
+                out in weeks.
+              </p>
+            </li>
+            <li>
+              <b>2022</b>
+              <h3>Weekly run club.</h3>
+              <p>
+                Every Wednesday, rain or shine. Started with 6 runners, now
+                averages 80+.
+              </p>
+            </li>
+            <li>
+              <b>2026</b>
+              <h3>40 brands &amp; counting.</h3>
+              <p>
+                Twenty seasons in, still hand-picking every product. Same team,
+                same goal.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="store-section">
+        <div>
+          <p class="label">Come say hi</p>
+          <h2>Visit us in Glasgow.</h2>
+          <dl>
+            <dt>Find us</dt>
+            <dd>Great Western Road, Glasgow</dd>
+            <dt>Wednesdays</dt>
+            <dd>Weekly run club, rain or shine</dd>
+            <dt>Saturdays</dt>
+            <dd>Free gait analysis &amp; injury consults</dd>
+          </dl>
+        </div>
+        <div class="store-map">
+          <img
+            src="src/About/visit_us_section/map.png"
+            alt="Map showing the Paceline store location"
+          /><i></i>
+        </div>
+      </section>
+      <section class="founder-section">
+        <div class="founder-content">
+          <p class="label">Meet the founders</p>
+          <h2>The people behind the shop.</h2>
+          <div class="founder-cards">
+            <article class="founder-card">
+              <div class="image-wrap">
+                <img
+                  src="src/About/founders_section/image1.png"
+                  alt="Rae Sinclair, smiling, arms crossed on a running track"
+                /><span class="founder-sticker">12x sub-3 marathoner</span>
+              </div>
+              <div class="founder-details">
+                <h3>Rae Sinclair</h3>
+                <p class="founder-role">Founder &amp; Head Buyer</p>
+                <p>
+                  A former GB triathlete turned shopkeeper. Rae hand-picks every
+                  shoe on the wall and still runs the Wednesday club — sub-3
+                  marathoner, twelve times over.
+                </p>
+              </div>
+            </article>
+            <article class="founder-card">
+              <div class="image-wrap">
+                <img
+                  src="src/About/founders_section/image2.png"
+                  alt="Jamie Roy, smiling, holding a tablet"
+                /><span class="founder-sticker">20+ years coaching</span>
+              </div>
+              <div class="founder-details">
+                <h3>Jamie Roy</h3>
+                <p class="founder-role">Co-Founder &amp; Coach</p>
+                <p>
+                  Sports physio and coach with two decades in the sport. Runs
+                  our free Saturday clinic, coaches the club, and knows more
+                  about your gait than you do.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="final-cta">
+        <div class="cta-content">
+          <p class="label">Ready to run?</p>
+          <h2>Come find your next pair of shoes.</h2>
+          <div class="action-row">
+            <a class="btn black" href="index.html#arrivals">Shop footwear</a><a class="btn" href="#">Book gait analysis</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="newsletter">
+          <div>
+            <h2>Join the Paceline club.</h2>
+            <p>
+              Early access to new drops, race-day tips, and 10% off your first
+              order.
+            </p>
+          </div>
+          <div>
+            <form id="newsletter-form">
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                aria-label="Email address"
+              /><button type="submit">SUBSCRIBE</button>
+            </form>
+            <div id="newsletter-message" role="status"></div>
+          </div>
+        </div>
+        <div class="footer-grid">
+          <div>
+            <div class="logo">PACELINE</div>
+            <p>
+              Race-day gear, trail-tested essentials, and everyday running kit —
+              curated in Glasgow since 2015.
+            </p>
+          </div>
+          <div>
+            <h4>Shop</h4>
+            <a href="#">Men's</a><a href="#">Women's</a><a href="#">Footwear</a><a href="#">Apparel</a><a href="#">Accessories</a><a href="#">Sale</a>
+          </div>
+          <div>
+            <h4>Help</h4>
+            <a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size Guides</a><a href="#">Gait Analysis</a><a href="#">FAQs</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="about.html">About Us</a><a href="#">Store · Glasgow</a><a href="#">Sustainability</a><a href="#">Careers</a><a href="#">Wholesale</a><a href="#">Press</a>
+          </div>
+          <div>
+            <h4>Follow</h4>
+            <a href="#">Instagram</a><a href="#">Strava</a><a href="#">TikTok</a><a href="#">YouTube</a><a href="#">Newsletter</a><a href="#">Blog</a>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© 2026 Paceline Running Co. — All rights reserved.</span><span
+            ><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#">Accessibility</a></span>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js?v=merged1"></script>
    </main>
 </body>
 </html>
