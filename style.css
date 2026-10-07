@@ -5,7 +5,7 @@
   --lime: #ccf04d;
   --orange: #ea5b2e;
   --lightorange: #d98a45;
-  --grey: #6b665e;
+  --grey: #6c655a;
   --word: 1312px;
   --fonts: "Archivo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
@@ -23,6 +23,20 @@ body{
    line-height: 1.55;
    -webkit-font-smoothing: antialiased;
 }
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,h2,h3 {
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+
 .navbar{
     display: flex;
   align-items: center;
@@ -30,19 +44,20 @@ body{
   height: 64px;
 }
 .main{
-  position: sticky; /* Control element layout or stacking. */
-  top: 0; /* Control element layout or stacking. */
-  z-index: 80; /* Control element layout or stacking. */
+  position: sticky;
+  top: 0;
+  z-index: 80;
   background: var(--cream);
-  border-bottom: 1px solid rgba(24,23,22,.14) 
+  border-bottom: 1px solid rgba(49, 48, 47, 0.14);
 }
 .navbar{
-  display: flex; /* Control element layout or stacking. */
+  display: flex;
   align-items: center;
-  justify-content: space-between; /* Arrange content within the layout. */
-  height: 64px 
+  justify-content: space-between;
+  height: 64px;
 }
 .logo {
+  margin-left:10px ;
   font-weight: 900;
   font-size: 1.65rem;
   letter-spacing: .06em;
@@ -59,34 +74,77 @@ body{
   padding: 4px 0;
 }
 .links a::after {
-  content: ""; /* Set supporting visual or interaction behavior. */
-  position: absolute; /* Control element layout or stacking. */
-  left: 0; /* Control element layout or stacking. */
-  right: 100%; /* Control element layout or stacking. */
-  bottom: 0; /* Control element layout or stacking. */
-  height: 3px; /* Set the element dimensions. */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 3px;
   background: var(--lime);
-  transition: right .25s /* Control the element motion or animation. */
+  transition: right .25s;
 }
 .links a:hover::after,.navlinks a.on::after {
-  right: 0 /* Control element layout or stacking. */
+  right: 0;
 }
 
 .links a.on {
-  font-weight: 800 /* Style the text and its typography. */
+  font-weight: 800;
 }
 
-.icons{
+.icon{
   display: flex;
-  gap: 20px; /* Set spacing around or between content. */
-  align-items: center
+  gap: 20px;
+  align-items: center;
 }
-.icons button{
+.icon button{
   background: none;
-  border: 0; /* Define the element edge or emphasis. */
+  border: 0;
   cursor: pointer;
   color: inherit;
   position: relative;
-  display: grid; /* Control element layout or stacking. */
-  place-items: center /* Arrange content within the layout. */
+  display: grid;
+  place-items: center;
+}
+.hero{
+  position: relative;
+  min-height: min(720px,86vh);
+  background: #000 center/cover url(src/Home/hero_section/image1.png);
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,rgba(0,0,0,.45),transparent 65%);
+}
+.boldtxt{
+   position: relative;
+  padding-bottom: 72px;
+  width: 100%;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 17px 28px;
+  font: 700 .85rem var(--fonts);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 2px solid var(--black);
+  background: none;
+  color: var(--black);
+  cursor: pointer;
+  transition: transform .2s,background .2s,color .2s;
+}
+.btn:hover {
+  transform: translateY(-3px) skewX(-6deg);
+}
+
+.btn.lime {
+  background: var(--lime);
+  border-color: var(--lime);
 }
