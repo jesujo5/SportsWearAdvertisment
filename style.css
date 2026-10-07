@@ -30,6 +30,7 @@ body {
   color: var(--black);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 img {
   display: block;
@@ -237,8 +238,8 @@ h2 {
   background: var(--lime);
   border-block: 3px solid var(--black);
   overflow: hidden;
-  transform: rotate(-1.2deg);
-  margin: -14px -20px 0;
+  transform: rotate(-1.2deg) scaleX(0.97);
+  margin: -14px 0 0;
   position: relative;
   z-index: 3;
 }
@@ -596,6 +597,13 @@ section.collection-section {
 .collection-card:nth-child(2) {
   clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
   margin-top: 40px;
+}
+#mens-running,
+#womens-running,
+#apparel,
+#arrivals,
+#story {
+  scroll-margin-top: 80px;
 }
 .collection-card:hover h3 {
   transform: translateX(12px);
@@ -1123,13 +1131,13 @@ footer {
     clip-path: none;
   }
   .strap {
-    margin: -8px -10px 0;
+    margin: -8px 0 0;
   }
   .strap-track span {
     font-size: 1.8rem;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   #burger {
     display: inline-flex;
   }
