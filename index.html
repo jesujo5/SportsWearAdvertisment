@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  
 </head>
 <body>
    <header id = "hdr">
@@ -126,15 +126,27 @@
               <p class="label">Just landed</p>
               <h2>New arrivals for the run.</h2>
             </div>
-            <div class="filters" role="group" aria-label="Filter products">
-              <button type="button" class="product-filter">New In</button>
-              <button
-                type="button" class="product-filter">Best Sellers </button>
-              <button type="button" class="product-filter"> Race Day</button>
-              <button type="button"class="product-filter">Trail</button>
+            <div class="arrival-filters" role="group" aria-label="Filter arrivals" aria-controls="product-grid">
+              <button type="button" class="arrival-filter" data-filter="new-in" aria-pressed="true">New In</button>
+              <button type="button" class="arrival-filter" data-filter="best-sellers" aria-pressed="false">Best Sellers</button>
+              <button type="button" class="arrival-filter" data-filter="race-day" aria-pressed="false">Race Day</button>
+              <button type="button" class="arrival-filter" data-filter="trail" aria-pressed="false">Trail</button>
             </div>
           </div>
-          <div class="product-grid" id="product-grid" aria-live="polite"></div>
+          <div class="product-grid" id="product-grid">
+            <article class="product-card" data-categories="new-in best-sellers" data-tone="gold">
+              <img src="src/Home/arrivals_section/image.png" alt="Running shoe" />
+            </article>
+            <article class="product-card" data-categories="new-in trail" data-tone="blue">
+              <img src="src/Home/arrivals_section/image.png" alt="Running shoe" />
+            </article>
+            <article class="product-card" data-categories="new-in race-day" data-tone="lime">
+              <img src="src/Home/arrivals_section/image.png" alt="Running shoe" />
+            </article>
+            <article class="product-card" data-categories="new-in best-sellers trail" data-tone="coral">
+              <img src="src/Home/arrivals_section/image.png" alt="Running shoe" />
+            </article>
+          </div>
         </div>
       </section>
       <section class="story-section">
@@ -233,5 +245,6 @@
         </div>
       </div>
     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

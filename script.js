@@ -55,3 +55,36 @@ if ("IntersectionObserver" in window) {
 } else {
   storyCounters.forEach(animateCounter);
 }
+
+const arrivalFilters = document.querySelectorAll(".arrival-filter[data-filter]");
+const arrivalCards = document.querySelectorAll(".product-card[data-categories]");
+
+function filterArrivalCards(selectedCategory) {
+  let visibleCardIndex = 0;
+
+  arrivalCards.forEach((card) => {
+    const categories = card.dataset.categories.split(/\s+/);
+    const isVisible = categories.includes(selectedCategory);
+    card.hidden = !isVisible;
+    card.classList.toggle("is-staggered", isVisible && visibleCardIndex % 2 === 1);
+
+    if (isVisible) {
+      visibleCardIndex += 1;
+    }
+  });
+}
+
+arrivalFilters.forEach((filterButton) => {
+  filterButton.addEventListener("click", () => {
+    arrivalFilters.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button === filterButton));
+    });
+
+    filterArrivalCards(filterButton.dataset.filter);
+  });
+});
+
+const initiallySelectedFilter = document.querySelector(".arrival-filter[aria-pressed=\"true\"]");
+if (initiallySelectedFilter) {
+  filterArrivalCards(initiallySelectedFilter.dataset.filter);
+}
