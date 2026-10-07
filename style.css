@@ -43,6 +43,17 @@ h3 {
   line-height: 1;
   letter-spacing: -0.02em;
 }
+h2 {
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-stretch: 85%;
+}
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -63,6 +74,19 @@ h3 {
 .btn:hover {
   transform: translateY(-3px) skewX(-6deg);
 }
+.btn.lime {
+  background: var(--lime);
+  border-color: var(--lime);
+}
+.btn.black {
+  background: var(--black);
+  color: var(--lime);
+}
+.btn.ghost {
+  color: #fff;
+  border-color: #fff;
+}
+
 .main{
   position: sticky;
   top: 0;
@@ -230,4 +254,172 @@ h3 {
   padding: 6px 12px;
   transform: skewX(-10deg);
 }
+.strap {
+  background: var(--lime);
+  border-block: 3px solid var(--black);
+  overflow: hidden;
+  transform: rotate(-1.2deg);
+  margin: -14px -20px 0;
+  position: relative;
+  z-index: 3;
+}
+/* The strap creates a moving running-category strip below the hero without JavaScript. */
+.strap-track {
+  display: flex;
+  width: max-content;
+  animation: tick 28s linear infinite;
+}
+.strap:hover .strap-track {
+  animation-play-state: paused;
+} 
+.strap-track span {
+  font-size: 2.6rem;
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: 70%;
+  text-transform: uppercase;
+  padding: 10px 34px;
+  white-space: nowrap;
+}
+.strap-track span.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--black);
+}
+.strap-track span::after {
+  content: "/";
+  margin-left: 68px;
+  opacity: 0.5;
+}
+@keyframes tick {
+  to {
+    transform: translateX(-50%);
+  }
+}
 
+section:is(.album, .product-arrivals, .collection-section, .mission-section, .values-section, .timeline-section, .founder-section) {
+  padding: 96px 0;
+}
+.albumheading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.view-more {
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--lime);
+}
+
+.category-cards {
+  display: flex;
+  gap: 16px;
+  height: 440px;
+}
+/* These flex rules make one category card expand when the visitor points at it. */
+.albumcard {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  color: #fff;
+  transition: flex 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.albumcard:hover,
+.albumcard:focus-within {
+  flex: 2.1;
+}
+.albumcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+.albumcard:hover img {
+  transform: scale(1.06);
+}
+.albumcard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.82));
+}
+.albumcard div {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  z-index: 2;
+  right: 22px;
+}
+.albumcard h3 {
+  font-size: 1.7rem;
+  font-stretch: 85%;
+}
+.albumcard p {
+  font-size: 0.9rem;
+  color: #e6e6e6;
+  margin: 6px 0 10px;
+}
+.albumcard span {
+  color: var(--lime);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+.albumcard {
+  clip-path: polygon(0 7%, 7% 0, 100% 0, 100% 94%, 92% 100%, 7% 100%, 0 93%);
+}
+.albumcard:nth-child(even) {
+  margin-top: 32px;
+  margin-bottom: -32px;
+}
+
+.album,
+#arrivals {
+  background-image: var(--lane);
+}
+/* The lane texture visually connects category browsing with product browsing. */
+.category-cards {
+  align-items: stretch;
+}
+/* The stagger and lime wash make the category cards feel like an energetic race poster. */
+.albumcard {
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 92% 100%, 0 100%);
+}
+.albumcard:nth-child(even) {
+  margin-top: 32px;
+  margin-bottom: -32px;
+}
+.albumcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--lime);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.album,
+#arrivals {
+  background-image: var(--lane);
+}
+.albumcard:hover img {
+  filter: grayscale(0) contrast(1.05);
+}
+.albumcard h3 {
+  font-style: italic;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.category-cards {
+  margin-bottom: 32px;
+}
+
+.album {
+  background-color: var(--cream);
+  background-image: repeating-linear-gradient( 90deg,transparent 0 78px, rgba(24, 23, 22, 0.07) 78px 80px );
+}
