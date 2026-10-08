@@ -708,19 +708,6 @@ footer {
 .footer-grid a:hover {
   color: var(--lime);
 }
-.legal {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  border-top: 1px solid #3a3835;
-  padding-top: 24px;
-  font-size: 0.8rem;
-  color: #999;
-}
-.legal span a {
-  margin-left: 20px;
-}
 
 .breadcrumb {
   text-align: center;
