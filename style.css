@@ -13,8 +13,8 @@
     rgba(24, 23, 22, 0.07) 78px 80px
   );
   --word: 1312px;
-  --page-gutter: clamp(20px, 5vw, 72px);
-  --section-space: clamp(56px, 7vw, 96px);
+  --page-gutter: clamp(20px, 5%, 72px);
+  --section-space: clamp(56px, 7%, 96px);
   --fonts: "Archivo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 * {
@@ -53,11 +53,11 @@ h3 {
   letter-spacing: -0.02em;
 }
 h2 {
-  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-size: 3.4em;
   font-stretch: 85%;
 }
 .label {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--orange);
@@ -68,7 +68,7 @@ h2 {
   align-items: center;
   gap: 10px;
   padding: 17px 28px;
-  font: 700 0.85rem var(--fonts);
+  font: 700 0.85em var(--fonts);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 2px solid var(--black);
@@ -110,11 +110,11 @@ h2 {
   justify-content: space-between;
   gap: 16px;
   height: 64px;
-  padding: 0 clamp(16px, 4vw, 48px);
+  padding: 0 clamp(16px, 4%, 48px);
 }
 .logo{
   font-weight: 900;
-  font-size: 1.65rem;
+  font-size: 1.65em;
   letter-spacing: 0.06em;
   font-stretch: 110%;
   white-space: nowrap;
@@ -123,7 +123,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 34px;
-  font-size: 0.95rem;
+  font-size: 0.95em;
   font-weight: 500;
 }
 .links a {
@@ -153,7 +153,7 @@ h2 {
   border: 1px solid var(--black);
   background: transparent;
   color: var(--black);
-  font: 700 0.72rem var(--fonts);
+  font: 700 0.72em var(--fonts);
   letter-spacing: 0.08em;
   cursor: pointer;
 }
@@ -173,7 +173,7 @@ h2 {
 }
 .home {
   position: relative;
-  min-height: min(720px, 86vh);
+  min-height: 720px;
   background: #000 center/cover url(src/Home/hero_section/image1.png);
   color: #fff;
   display: flex;
@@ -188,17 +188,17 @@ h2 {
 }
 .home .home-content {
   position: relative;
-  padding: 0 var(--page-gutter) clamp(32px, 7vh, 72px);
+  padding: 0 var(--page-gutter) clamp(32px, 7%, 72px);
   width: 100%;
 }
 .home .tag {
   color: var(--lime);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   margin-bottom: 10px;
 }
 .home h1 {
-  font-size: clamp(2.75rem, 13.5vw, 12.5rem);
+  font-size: 12em;
   font-weight: 900;
   font-style: italic;
   font-stretch: 70%;
@@ -224,8 +224,8 @@ h2 {
     transform: translateX(0);
   }
 }
-.home .home-content > p:not(.tag) {
-  max-width: 52ch;
+.home .home-content  p:not(.tag) {
+  max-width: 26em;
   margin-top: 20px;
 }
 .action-row {
@@ -248,11 +248,9 @@ h2 {
   width: max-content;
   animation: tick 28s linear infinite;
 }
-.strap:hover .strap-track {
-  animation-play-state: paused;
-} 
+
 .strap-track span {
-  font-size: 2.6rem;
+  font-size: 2.6em;
   font-weight: 900;
   font-style: italic;
   font-stretch: 70%;
@@ -288,7 +286,7 @@ section:is(.mission-section, .values-section, .timeline-section, .founder-sectio
 }
 .view-more {
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-bottom: 3px solid var(--lime);
@@ -337,20 +335,20 @@ section:is(.mission-section, .values-section, .timeline-section, .founder-sectio
   right: 22px;
 }
 .albumcard h3 {
-  font-size: 2rem;
+  font-size: 2em;
   font-stretch: 85%;
   font-style: italic;
   text-transform: uppercase;
 }
 .albumcard p {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: #e6e6e6;
   margin: 6px 0 10px;
 }
 .albumcard span {
   color: var(--lime);
   font-weight: 800;
-  font-size: 0.78rem;
+  font-size: 0.78em;
   letter-spacing: 0.08em;
 }
 .albumcard:nth-child(even) {
@@ -400,7 +398,7 @@ section.collection-section {
   border-radius: 999px;
   background: transparent;
   color: var(--black);
-  font: 700 0.78rem var(--fonts);
+  font: 700 0.78em var(--fonts);
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
@@ -484,7 +482,7 @@ section.collection-section {
   clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
 }
 .story-section > div {
-  padding: clamp(40px, 7vw, 100px);
+  padding: clamp(40px, 7%, 100px);
   align-self: center;
 }
 .story-section .label {
@@ -504,7 +502,7 @@ section.collection-section {
 }
 .stats b {
   display: block;
-  font-size: 3.6rem;
+  font-size: 3.6em;
   font-weight: 900;
   font-stretch: 75%;
   color: var(--lime);
@@ -513,7 +511,7 @@ section.collection-section {
   text-shadow: 3px 3px 0 rgba(204, 240, 77, 0.22);
 }
 .stats small {
-  font-size: 0.78rem;
+  font-size: 0.78em;
   color: #aaa;
   letter-spacing: 0.06em;
 }
@@ -524,7 +522,7 @@ section.collection-section {
   place-items: center;
   background: var(--black);
   color: var(--lime);
-  font-size: 1.7rem;
+  font-size: 1.7em;
   letter-spacing: 0.3em;
   overflow: hidden;
 }
@@ -573,7 +571,7 @@ section.collection-section {
   padding: 32px;
 }
 .collection-card h3 {
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-size: 3.2em;
   font-stretch: 80%;
   font-weight: 900;
   font-style: italic;
@@ -587,7 +585,7 @@ section.collection-section {
 .collection-card span {
   color: var(--lime);
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   letter-spacing: 0.08em;
 }
 
@@ -638,7 +636,7 @@ footer {
   border-bottom: 1px solid #3a3835;
 }
 .newsletter h2 {
-  font-size: 2.2rem;
+  font-size: 2.2em;
 }
 .newsletter p {
   color: #aaa;
@@ -670,7 +668,7 @@ footer {
 .newsletter button {
   border: 0;
   background: var(--lime);
-  font: 800 0.85rem var(--fonts);
+  font: 800 0.85em var(--fonts);
   letter-spacing: 0.08em;
   padding: 20px 30px;
   cursor: pointer;
@@ -689,12 +687,12 @@ footer {
 }
 .footer-grid p {
   color: #aaa;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   max-width: 280px;
   margin-top: 18px;
 }
 .footer-grid h4 {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -702,7 +700,7 @@ footer {
 .footer-grid a {
   display: block;
   color: #b5b0a8;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   padding: 4px 0;
 }
 .footer-grid a:hover {
@@ -711,7 +709,7 @@ footer {
 
 .breadcrumb {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   letter-spacing: 0.1em;
   color: var(--grey);
   padding-top: 64px;
@@ -744,7 +742,7 @@ footer {
 .page-title {
   position: relative;
   color: var(--black);
-  font-size: clamp(5rem, 20vw, 19rem);
+  font-size: 18em;
   font-weight: 900;
   font-stretch: 70%;
   text-align: center;
@@ -756,12 +754,13 @@ footer {
   max-width: 600px;
   margin: 0 auto 56px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color: var(--grey);
 }
 .story-image {
   overflow: hidden;
-  height: min(480px, 56vw);
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
   position: relative;
 }
 .story-image img {
@@ -779,7 +778,7 @@ footer {
   gap: 64px;
 }
 .mission-layout h2 {
-  font-size: clamp(3rem, 6vw, 5.2rem);
+  font-size: 3.8em;
   font-weight: 900;
   font-stretch: 78%;
 }
@@ -812,7 +811,7 @@ footer {
 }
 .value-cards b {
   display: block;
-  font-size: 5.5rem;
+  font-size: 5.5em;
   font-weight: 900;
   font-stretch: 75%;
   line-height: 1;
@@ -831,13 +830,13 @@ footer {
   color: var(--lightorange);
 }
 .value-cards h3 {
-  font-size: 1.4rem;
+  font-size: 1.4em;
   letter-spacing: -0.01em;
   margin-bottom: 12px;
 }
 .value-cards p {
   color: var(--grey);
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
 .story-timeline {
   position: relative;
@@ -876,7 +875,7 @@ footer {
 }
 .story-timeline b {
   display: block;
-  font-size: 3.4rem;
+  font-size: 3.4em;
   font-weight: 900;
   font-stretch: 75%;
   line-height: 1;
@@ -887,12 +886,12 @@ footer {
   color: var(--orange);
 }
 .story-timeline h3 {
-  font-size: 1.15rem;
+  font-size: 1.15em;
   letter-spacing: -0.01em;
   margin: 14px 0 8px;
 }
 .story-timeline p {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: var(--grey);
 }
 .store-section {
@@ -902,14 +901,14 @@ footer {
   color: #fff;
 }
 .store-section > div:first-child {
-  padding: clamp(40px, 7vw, 100px);
+  padding: clamp(40px, 7%, 100px);
   align-self: center;
 }
 .store-section .label {
   color: var(--lime);
 }
 .store-section h2 {
-  font-size: clamp(3rem, 6vw, 5.4rem);
+  font-size: 3.8em;
   font-weight: 900;
   font-stretch: 78%;
   margin-bottom: 28px;
@@ -940,7 +939,7 @@ footer {
   left: 50%;
   top: 50%;
   font-style: normal;
-  font-size: 2.8rem;
+  font-size: 2.8em;
   transform: translate(-50%, -50%);
   animation: ping 2s infinite;
 }
@@ -989,7 +988,7 @@ footer {
   bottom: 24px;
   background: var(--lime);
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   padding: 8px 16px;
   border-radius: 99px;
   transform: rotate(-4deg);
@@ -999,14 +998,14 @@ footer {
   padding: 32px 36px 36px;
 }
 .founder-card h3 {
-  font-size: 1.9rem;
+  font-size: 1.9em;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 .founder-card .founder-role {
   color: var(--orange);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   margin: 6px 0 12px;
 }
 .founder-card p {
@@ -1065,6 +1064,16 @@ footer {
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 @media (max-width: 960px) {
+  h2 {
+    font-size: 2.4em;
+  }
+  .collection-card h3 {
+    font-size: 2.1em;
+  }
+  .mission-layout h2,
+  .store-section h2 {
+    font-size: 3.8em;
+  }
   .category-cards {
     flex-direction: column;
     height: auto;
@@ -1121,7 +1130,34 @@ footer {
     margin: -8px 0 0;
   }
   .strap-track span {
-    font-size: 1.8rem;
+    font-size: 1.8em;
+  }
+  .home h1 {
+    font-size: 7em;
+  }
+  .page-title {
+    font-size: 9em;
+  }
+}
+@media (max-width: 560px) {
+  h2 {
+    font-size: 2em;
+  }
+  .collection-card h3 {
+    font-size: 2em;
+  }
+  .mission-layout h2,
+  .store-section h2 {
+    font-size: 3em;
+  }
+  .home {
+    min-height: 520px;
+  }
+  .home h1 {
+    font-size: 3.4em;
+  }
+  .page-title {
+    font-size: 5em;
   }
 }
 @media (max-width: 900px) {
