@@ -1,3 +1,4 @@
+// Small utility helpers to keep DOM selections consistent across sections.
 const findElement = (selector, scope = document) => scope.querySelector(selector);
 const findElements = (selector, scope = document) =>
   Array.from(scope.querySelectorAll(selector));
@@ -7,6 +8,7 @@ const userPrefersReducedMotion = window.matchMedia(
 ).matches;
 const observedElements = findElements("[data-n], .story-timeline li");
 
+// Animate stat counters as they scroll into view to add motion without heavy code.
 function animateNumber(element) {
   const target = Number(element.dataset.n);
   const suffix = element.dataset.s || "";
@@ -69,6 +71,7 @@ findElements(".story-timeline li").forEach((item, index) => {
   }
 });
 
+// Gently move the story image as the user scrolls to create a subtle parallax feel.
 const storyImagePanel = findElement("#story-image");
 const storyImage = storyImagePanel && findElement("img", storyImagePanel);
 
@@ -90,6 +93,7 @@ if (storyImagePanel && storyImage && !userPrefersReducedMotion) {
   moveStoryImage();
 }
 
+// Mobile navigation toggle for the burger menu and keyboard accessibility handling.
 const menuButton = findElement("#burger");
 const navigationLinks = findElement("#links");
 
@@ -120,6 +124,7 @@ if (menuButton && navigationLinks) {
   });
 }
 
+// Product filter logic for the arrivals section: toggles the selected category and re-renders visibility.
 const arrivalFilters = findElements(".arrival-filter[data-filter]");
 const arrivalCards = findElements(".product-card[data-categories]");
 

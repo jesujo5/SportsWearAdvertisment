@@ -1,3 +1,4 @@
+/* Global design tokens and base styling for the whole storefront */
 :root {
   --cream: #f1e2c7;
   --white: #f6f1e8;
@@ -21,6 +22,8 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+/* Smooth page scrolling and base typography */
 html {
   scroll-behavior: smooth;
 }
@@ -96,6 +99,7 @@ h2 {
   border-color: #fff;
 }
 
+/* Navigation header layout and sticky site branding */
 .main{
   position: sticky;
   top: 0;
@@ -171,6 +175,7 @@ h2 {
   display: grid;
   place-items: center;
 }
+/* Hero banner,  headline */
 .home {
   position: relative;
   min-height: 720px;
@@ -234,6 +239,8 @@ h2 {
   gap: 12px;
   margin-top: 24px;
 }
+
+/*  strip motion  */
 .strap {
   background: var(--lime);
   border-block: 3px solid var(--black);
@@ -246,7 +253,7 @@ h2 {
 .strap-track {
   display: flex;
   width: max-content;
-  animation: tick 28s linear infinite;
+  animation: tick 30s linear infinite;
 }
 
 .strap-track span {
@@ -273,9 +280,12 @@ h2 {
   }
 }
 
+/* Shared spacing for about-page feature sections */
 section:is(.mission-section, .values-section, .timeline-section, .founder-section) {
   padding: 96px 0;
 }
+
+/* category and arrivals blocks */
 .albumheading {
   display: flex;
   justify-content: space-between;
@@ -468,6 +478,7 @@ section.collection-section {
   }
 }
 
+/* Brand story block with image, narrative, and animated stats */
 .story-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -535,6 +546,7 @@ section.collection-section {
   transform: skewX(-8deg);
 }
 
+/* Featured collection split cards for gender-focused shopping links */
 .collection-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -621,6 +633,7 @@ section.collection-section {
   width: 10px;
 }
 
+/* Footer styling for newsletter signup and category navigation */
 footer {
   background: var(--black);
   color: #fff;
@@ -1204,6 +1217,7 @@ footer {
   }
 }
 
+/* About-page intro layout and title treatment */
 .about-page .about-intro {
   text-align: center;
 }
